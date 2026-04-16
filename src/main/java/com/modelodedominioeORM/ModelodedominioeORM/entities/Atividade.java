@@ -33,7 +33,7 @@ public class Atividade {
 	@OneToMany(mappedBy = "atividade")
 	private List<Bloco> blocoList = new ArrayList<>();
 	
-	@ManyToMany(mappedBy = "list")
+	@ManyToMany(mappedBy = "atividades")
 	private Set<Participante> participanteList = new HashSet<>();
 	
 	public Atividade() {
