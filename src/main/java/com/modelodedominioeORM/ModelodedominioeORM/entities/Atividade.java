@@ -1,11 +1,15 @@
 package com.modelodedominioeORM.ModelodedominioeORM.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +26,9 @@ public class Atividade {
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
+	
+	@OneToMany(mappedBy = "atividade")
+	private List<Bloco> blocoList = new ArrayList<>();
 	
 	public Atividade() {
 	}
@@ -74,6 +81,8 @@ public class Atividade {
 		this.categoria = categoria;
 	}
 	
-	
+	public List<Bloco> getAtividade() {
+		return blocoList;
+	}
 	
 }
